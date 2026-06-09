@@ -26,5 +26,7 @@ jobs:
           keep_files: false
 
       - name: Enable GitHub Pages site
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh api -X POST repos/${GITHUB_REPOSITORY}/pages -f source.branch=gh-pages -f source.path='/'
